@@ -9,10 +9,13 @@ import WaterIcon from '@mui/icons-material/Water';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import ThermostatOutlinedIcon from '@mui/icons-material/ThermostatOutlined';
+import SevereColdIcon from '@mui/icons-material/SevereCold';
+import { BsCloudsFill, BsSnow2, BsFillCloudSunFill, BsFillCloudLightningRainFill, BsFillCloudFog2Fill,  BsCloudyFill} from "react-icons/bs";
 
 function App() {
   const [data, setData] = useState({})
   const [location, setLocation] = useState('')
+  const[weather,setweather]=useState({});
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=9524591053a520cd7a745f52eb88da01`;
 
@@ -26,6 +29,34 @@ function App() {
     }
   }
 
+  // string check
+  function getIcon(state: string){
+    switch(state.toLowerCase()){
+        case 'snow':
+            return <BsSnow2/>
+        case 'rain':
+            return  <BsFillCloudLightningRainFill className='icon' fontSize='large' style={{color:'white'}}/>
+        case 'fog':
+            return <BsFillCloudFog2Fill className='icon' fontSize='large' style={{color:'white'}}/>
+        case 'wind':
+            return <BsFillCloudFog2Fill className='icon' fontSize='large' style={{color:'white'}}/>
+        case 'cloudy':
+            return <BsCloudyFill/>
+            case 'clouds':
+              return <BsFillCloudSunFill className='icon' fontSize='large' style={{color:'white'}}/>
+        case 'partly-cloudy-day':
+            return <BsCloudyFill/>
+        case 'partly-cloudy-night':
+            return <BsCloudyFill className='icon' fontSize='large' style={{color:'white'}}/>
+        case 'clear':
+            return <WbSunnyOutlinedIcon className='icon' fontSize='large' style={{color:'white'}}/> 
+        case 'clear-night':
+            return<BsCloudsFill className='icon' fontSize='large' style={{color:'white'}}/>
+        default:
+        return<BsCloudsFill className='icon' fontSize='large' style={{color:'white'}}/>
+      
+      }
+}
   return (
     <div className="App">
        <div className="search">
@@ -44,19 +75,13 @@ function App() {
           <div className="temp">
           
            { data.main ? <h1>{data.main.temp.toFixed()}°C</h1> : null}
-           {data.main?
-            <WbSunnyOutlinedIcon fontSize='large' style={{color:'yellow'}}/>
-            : null
-          }
-          {/* {  
-             data.main ?
-             
-            data.main.temp >= 20 ? {'backgroundImage-image':
-            `url(${'./today3.jpg'})`} 
-            : {'backgroundImage-image': `url(${'./nature.jpg'}`}
-             
-            : null
-          } */}
+
+           {data.weather?<div className="des">  {getIcon(data.weather[0].main)}    </div>:null}
+    
+
+
+           
+            
 
           
           </div>
