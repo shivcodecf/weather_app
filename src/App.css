@@ -6,7 +6,7 @@
  
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: auto;
   top: 0;
   left: 0;
   z-index: -1;
@@ -34,11 +34,12 @@
 }
 .temp{
   margin-top: 100px;
-  color:wheat;
+  color:#adcdd1;
   display:flex;
-  margin-left:250px;
+  margin-left:240px;
+  
   text-decoration-style:bold;
-}
+}       
 
 .container {
   max-width: 700px;
@@ -51,6 +52,16 @@
   flex-direction: column;
   justify-content: space-between;
 }
+.error{
+  text-align:center;
+  color:red;
+  font-size: 50px;
+  
+  background-color: blueviolet;
+  height:100%;
+   background: url('./weather.jpg') no-repeat center  center/cover; 
+
+}
 
 .top {
   width: 100%;
@@ -60,7 +71,7 @@
 .location{
   font-size: 3rem;
   color:black;
-  margin-top: 50px;
+  margin-top: 10px;
   margin-left: 40px;
   
 }
@@ -76,25 +87,97 @@
   padding: 1rem;
   border-radius: 12px;
   background-color: rgba(98, 92, 148, 0.315);
-  margin-bottom: 100px;
+  margin-bottom: 200px;
   font-size: 33px;
   color:white;
+  margin-left: 40px;
   /* border: 2px solid blueviolet; */
 }
 
 .bold {
   font-weight: 700;
 }
+.icon{
+  font-size: 50px;
+}
 .description {
+  position: relative;
   
-   position: relative;
-   right: -108%;
-   transform-origin: 0.1 0.1;
-  transform: rotate(269deg);
-  
+ 
+
+  margin-right: -1400px;
+   /* transform-origin: 1 1;  */
+  transform: rotate(269deg); 
   font-size: 3rem;
-  color:rgb(105, 14, 216);
-  margin-top:-220px;
-  
+  color: #3a86ff;
+  margin-top: -90px;
+}
+.App{
+  height:100vh;
+  overflow:hidden;
+}
+.webicon{
+  margin-bottom:30px;
+}
+.main-image{
+  background: url(today3.jpg) no-repeat center  center/cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  /* overflow-x: hidden; */
+}
+@media screen and (max-width: 1500px) {
+  .description {
+    margin-right: 0; /* Reset margin-right */
+    transform: rotate(0); /* Reset transform */
+    font-size: 2rem; /* Adjust font size */
+    color: #000; /* Change color if needed */
+    margin-top: 10px; /* Adjust margin-top */
+    font-size: 70px;
+    color:#a9def9;
+    /* Add any other responsive styles as needed */
+  }
+  .temp{
+    margin-top: 100px;
+    color:#1b4965;
+    text-align: center;
+    margin-left:120px;
+    
+    text-decoration-style:bold;
+  }       
+  .bottom {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: rgba(98, 92, 148, 0.315);
+    margin-bottom: -40px;
+    font-size: 33px;
+    color:white;
+    margin-left: 40px;
+    /* border: 2px solid blueviolet; */
+  }
+}
+@media screen and (max-width: 1500px) {
+  .bottom {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: rgba(98, 92, 148, 0.315);
+    margin-bottom: -40px;
+    font-size: 33px;
+    color:white;
+    margin-left: 40px;
+    /* border: 2px solid blueviolet; */
+  }
 
 }
+
